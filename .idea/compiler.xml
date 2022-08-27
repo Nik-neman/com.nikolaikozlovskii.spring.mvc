@@ -6,8 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="com.nikolaikozlovskii.spring.mvc" />
+        <module name="spring_course_mvc" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="spring_course_mvc" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
