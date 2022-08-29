@@ -1,9 +1,8 @@
 package com.nikolaikozlovskii.spring.mvc;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import com.nikolaikozlovskii.spring.mvc.validation.CheckEmail;
+
+import javax.validation.constraints.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,6 +12,8 @@ public class Employee {
 //    @NotEmpty(message = "surname is reguired field")
     @NotBlank(message = "surname is reguired field")
    private String surname;
+    @Min(value = 500, message = "must be greater than 499")
+    @Max(value = 1000, message = "must be less than 1001")
    private int salary;
    private String department;
    private Map<String, String> departments;
@@ -20,6 +21,11 @@ public class Employee {
     private Map<String, String> carBrands;
     private String[] languages;
     private Map<String, String> languageList;
+    @Pattern(regexp = "\\d{3}-\\d{2}-\\d{2}", message = "please use pattern XXX-XX-XX")
+    private String phoneNumber;
+    @CheckEmail(value = "abc.com", message = "please must ends with abc.com")
+//    @CheckEmail
+    private String email;
 
     public Employee() {
         departments = new HashMap<>();
@@ -120,5 +126,21 @@ public class Employee {
 
     public void setLanguageList(Map<String, String> languageList) {
         this.languageList = languageList;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String emeil) {
+        this.email = emeil;
     }
 }
